@@ -15,15 +15,15 @@ public class Train {
         wagons.add(new Wagon(5, 40));
         wagons.add(new Wagon(6, 40));
 
-        addPassenger(wagons, 88);
+        addPassenger(wagons);
 
         for (Wagon wagon : wagons) {
             System.out.println(wagon.getCurrentPassengers());
         }
     }
 
-    private static void addPassenger(List<Wagon> wagons, int newPassengers) {
-        int remainingPassengers = newPassengers;
+    private static void addPassenger(List<Wagon> wagons) {
+        int remainingPassengers = 88;
 
         for (Wagon wagon : wagons) {
             if (remainingPassengers <= 0) {
