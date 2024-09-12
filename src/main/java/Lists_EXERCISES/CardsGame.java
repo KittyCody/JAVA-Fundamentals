@@ -25,22 +25,22 @@ public class CardsGame {
         int sum = 0;
 
         while (!firstDeck.isEmpty() && !secondDeck.isEmpty()) {
-            int firstDeckCard = firstDeck.get(0);
-            int secondDeckCard = secondDeck.get(0);
+            int firstDeckCard = firstDeck.getFirst();
+            int secondDeckCard = secondDeck.getFirst();
 
             if (firstDeckCard > secondDeckCard) {
-                firstDeck.remove(0);
-                secondDeck.remove(0);
+                firstDeck.removeFirst();
+                secondDeck.removeFirst();
                 firstDeck.add(firstDeckCard);
                 firstDeck.add(secondDeckCard);
             } else if (secondDeckCard > firstDeckCard) {
-                firstDeck.remove(0);
-                secondDeck.remove(0);
+                firstDeck.removeFirst();
+                secondDeck.removeFirst();
                 secondDeck.add(secondDeckCard);
                 secondDeck.add(firstDeckCard);
             } else {
-                firstDeck.remove(0);
-                secondDeck.remove(0);
+                firstDeck.removeFirst();
+                secondDeck.removeFirst();
             }
         }
 

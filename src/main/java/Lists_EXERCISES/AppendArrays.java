@@ -1,28 +1,27 @@
 package Lists_EXERCISES;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AppendArrays {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        String input = scan.nextLine();
+List<String> arrays = Arrays.stream(scanner.nextLine().split("\\|"))
+                .collect(Collectors.toList());
 
-        String[] array = input.split("\\|");
-        List<Integer> numbers = new ArrayList<>();
 
-        for(int i = array.length - 1; i >= 0; i--) {
-            String[] items = array[i].trim().split("\\s+");
+Collections.reverse(arrays);
 
-            for(String item : items) {
-                numbers.add(Integer.parseInt(item));
-            }
-        }
+String output = arrays.toString()
+                .replace("[", "")
+                        .replace("]", "")
+                                .replace(",", "")
+                                        .replaceAll("\\s+", " ")
+                                                .trim();
 
-        for(int number : numbers) {
-            System.out.print(number + " ");
-        }
 
-        scan.close();
+System.out.println(output);
+        scanner.close();
     }
 }
