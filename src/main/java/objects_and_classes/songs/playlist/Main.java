@@ -1,4 +1,4 @@
-package objects_and_classes.songs;
+package objects_and_classes.songs.playlist;
 
 import java.util.ArrayList;
 import java.util.List;

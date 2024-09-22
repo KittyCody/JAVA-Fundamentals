@@ -1,4 +1,4 @@
-package objects_and_classes.songs;
+package objects_and_classes.songs.playlist;
 
 public class Song {
     private String typeList;
