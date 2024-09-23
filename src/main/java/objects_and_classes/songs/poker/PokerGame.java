@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 //the logic of the game
-
 public class PokerGame {
     private final Deck deck;
     private final List<Card> communityCards;
