@@ -3,6 +3,8 @@ package objects_and_classes.songs.poker;
 import java.util.ArrayList;
 import java.util.List;
 
+//the logic of the game
+
 public class PokerGame {
     private final Deck deck;
     private final List<Card> communityCards;
@@ -12,7 +14,7 @@ public class PokerGame {
         communityCards = new ArrayList<>();
     }
 
-    //simulates dealing community cards in the poker game;
+    //simulates dealing community cards
     public void flop() {
         // 1st round, burn 1 card, then deal 3
         deck.deal(1);

@@ -9,7 +9,6 @@ import java.util.List;
 public class Deck {
     private final List<Card> cards;
 
-    //constructing a new deck of cards using the object Card
     public Deck() {
         cards = new ArrayList<>();
         String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
@@ -28,7 +27,7 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
-    //deal the specific nu,ber of cards manipulated; creates a new list for the dealt cards and remove them after.
+    //deal the specific number of cards manipulated; creates a new list for the dealt cards and remove them after.
     public List<Card> deal(int count) {
         List<Card> hand = new ArrayList<>(cards.subList(0, count));
         cards.subList(0, count).clear();
