@@ -2,7 +2,6 @@ package fundamentals_more_exercises;
 
 public class Staircase {
 
-
     public static int countWays(int n) {
         if (n < 0) {
             return 0;
