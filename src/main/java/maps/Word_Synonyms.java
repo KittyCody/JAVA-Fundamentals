@@ -1,4 +1,4 @@
-package fundamentals_more_exercises;
+package maps;
 
 import java.util.*;
 
