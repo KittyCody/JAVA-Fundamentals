@@ -10,7 +10,7 @@ public class MatchDates {
 
         String text = scanner.nextLine();
 
-        String regex = "\\b(?<day>\\d{2})(?<month>[.\\-\\/])([A-Z][a-z]{2})\\2(?<year>\\d{4})\\b";
+        String regex = "\\b(?<day>\\d{2})(?<month>[\\.\\-\\/])([A-Z][a-z]{2})\\2(?<year>\\d{4})\\b";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
 
