@@ -9,50 +9,61 @@ public class ActivationKeys_2 {
         String activationKey = scanner.nextLine();
 
         String command = scanner.nextLine();
+        while (!command.equals("Generate")) {
+            String[] commandParts = command.split(">>>");
+            String operation = commandParts[0];
 
-        while(!command.equals("Generate")){
-
-            switch (command){
-                case "Contains" -> findIfContains(activationKey,command);
-                case "Flip" -> flipLetter(activationKey, command);
-                case "Slice" -> sliceLetter(activationKey, command);
+            switch (operation) {
+                case "Contains" -> findIfContains(activationKey, command);
+                case "Flip" -> activationKey = flipLetter(activationKey, command);
+                case "Slice" -> activationKey = sliceLetter(activationKey, command);
             }
 
             command = scanner.nextLine();
         }
 
+        System.out.println("Your activation key is: " + activationKey);
         scanner.close();
     }
 
-    private static void flipLetter(String activationKey, String command) {
-        StringBuilder key = new StringBuilder(activationKey);
+    private static String sliceLetter(String activationKey, String command) {
+        String[] commandParts = command.split(">>>");
+        int startIndex = Integer.parseInt(commandParts[1]);
+        int endIndex = Integer.parseInt(commandParts[2]);
 
-        String [] commandsParts = command.split(">>>");
-        String upperOrLower = commandsParts[1];
-        int startIndex = Integer.parseInt(commandsParts[2]);
-        int endIndex = Integer.parseInt(commandsParts[3]);
+        String substring = activationKey.substring(startIndex, endIndex);
+        activationKey = activationKey.replace(substring, "");
 
-        String substring = key.substring(startIndex, endIndex - 1);
-        if(upperOrLower.equals("Upper")){
+        System.out.println(activationKey);
+        return activationKey;
+    }
+
+    private static String flipLetter(String activationKey, String command) {
+        String[] commandParts = command.split(">>>");
+        String upperOrLower = commandParts[1];
+        int startIndex = Integer.parseInt(commandParts[2]);
+        int endIndex = Integer.parseInt(commandParts[3]);
+
+        String substring = activationKey.substring(startIndex, endIndex);
+        if (upperOrLower.equals("Upper")) {
             substring = substring.toUpperCase();
-        } else if(upperOrLower.equals("Lower")){
+        } else if (upperOrLower.equals("Lower")) {
             substring = substring.toLowerCase();
         }
 
-        key.replace(startIndex,endIndex, substring);
-        activationKey = key.toString();
+        activationKey = activationKey.substring(0, startIndex) + substring + activationKey.substring(endIndex);
         System.out.println(activationKey);
+        return activationKey;
     }
 
     private static void findIfContains(String activationKey, String command) {
-
-        String [] commandParts = command.split(">>>");
+        String[] commandParts = command.split(">>>");
         String substring = commandParts[1];
 
-        if (activationKey.contains(substring)){
+        if (activationKey.contains(substring)) {
             System.out.println(activationKey + " contains " + substring);
         } else {
-            System.out.println("Substring not found");
+            System.out.println("Substring not found!");
         }
     }
 }
