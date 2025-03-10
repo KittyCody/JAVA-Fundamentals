@@ -5,13 +5,15 @@ import java.util.Scanner;
 public class ReverseNum {
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
-        int input = Math.abs(scanner.nextInt());
-        StringBuilder toString = new StringBuilder(String.valueOf(input));
-        toString.reverse();
+            int number = scanner.nextInt();
+            StringBuilder reversed = new StringBuilder(String.valueOf(number));
 
-        System.out.println(toString);
+            reversed.reverse();
+
+            System.out.println(reversed);
 
         scanner.close();
     }
